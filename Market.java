@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Market implements MarketBehaviour, QueueBehaviour {
     private List<Actor> queue;
 
     public Market() {
-        this.queue = new ArrayList<>();
+        this.queue = new LinkedList<>(); 
     }
 
     @Override
@@ -20,7 +20,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
             System.out.println("Очередь пуста.");
             return null;
         }
-        Actor actor = queue.remove(0);
+        Actor actor = ((LinkedList<Actor>) queue).removeFirst(); 
         System.out.println(actor.getName() + " покинул очередь.");
         return actor;
     }
@@ -65,7 +65,7 @@ public class Market implements MarketBehaviour, QueueBehaviour {
     }
 
     private void releaseFromQueue() {
-        List<Actor> releasedActors = new ArrayList<>();
+        List<Actor> releasedActors = new LinkedList<>();
         for (Actor actor : queue) {
             if (actor.isTakeOrder()) {
                 releasedActors.add(actor);

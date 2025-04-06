@@ -9,17 +9,23 @@ public abstract class Actor implements ActorBehaviour {
         this.isMakeOrder = false;
     }
 
-    public abstract String getName();
+    public String getName() {
+        return name;
+    }
 
-    public abstract void setName(String name);
+    public boolean isTakeOrder() {
+        return isTakeOrder;
+    }
 
-    public abstract boolean isTakeOrder();
+    public void setTakeOrder(boolean val) {
+        this.isTakeOrder = val;
+    }
 
-    public abstract void setTakeOrder(boolean val);
+    public boolean isMakeOrder() {
+        return isMakeOrder;
+    }
 
-    public abstract boolean isMakeOrder();
-
-    public abstract void setMakeOrder(boolean val);
-} 
-    
-
+    public void setMakeOrder(boolean val) {
+        this.isMakeOrder = val;
+    }
+}

@@ -12,11 +12,6 @@ public class Human extends Actor {
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
     public boolean isTakeOrder() {
         return super.isTakeOrder;
     }
