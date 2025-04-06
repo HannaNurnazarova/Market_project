@@ -2,7 +2,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Market implements MarketBehaviour, QueueBehaviour {
-    private List<Actor> queue;
+    private LinkedList<Actor> queue; 
 
     public Market() {
         this.queue = new LinkedList<>(); 
@@ -15,14 +15,13 @@ public class Market implements MarketBehaviour, QueueBehaviour {
     }
 
     @Override
-    public Actor dequeue() {
+    public void dequeue() {
         if (queueSize() == 0) {
             System.out.println("Очередь пуста.");
-            return null;
+            return; 
         }
-        Actor actor = ((LinkedList<Actor>) queue).removeFirst(); 
+        Actor actor = queue.removeFirst(); 
         System.out.println(actor.getName() + " покинул очередь.");
-        return actor;
     }
 
     @Override
@@ -73,6 +72,6 @@ public class Market implements MarketBehaviour, QueueBehaviour {
                 System.out.println(actor.getName() + " вышел из магазина.");
             }
         }
-        queue.removeAll(releasedActors);
+        queue.removeAll(releasedActors); 
     }
 }

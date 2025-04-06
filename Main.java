@@ -9,18 +9,14 @@ public class Main {
         market.acceptToMarket(human2);
         market.acceptToMarket(human3);
 
-        
         market.enqueue(human1);
         market.enqueue(human2);
         market.enqueue(human3);
 
-        
         market.update();
 
-     
         market.dequeue(); 
 
-        
         System.out.println("Размер очереди: " + market.queueSize());
     }
 }
